@@ -1,56 +1,18 @@
-# Simplified variables.tf for TFC No-Code compatibility
-# Complex validations can sometimes cause parsing issues in TFC
-
-variable "environment" {
-  description = "Environment name - Choose the deployment environment for your infrastructure"
+# Test module with minimal variables for TFC debugging
+variable "test_string" {
+  description = "A test string variable"
   type        = string
-  default     = "dev"
+  default     = "hello-world"
 }
 
-variable "project_name" {
-  description = "Project name - A unique identifier for your project (used in resource naming)"
-  type        = string
-  default     = "my-project"
+variable "test_bool" {
+  description = "A test boolean variable"
+  type        = bool
+  default     = true
 }
 
-variable "region" {
-  description = "AWS Region - Select the AWS region where resources will be created"
-  type        = string
-  default     = "us-west-2"
-}
-
-variable "vpc_cidr" {
-  description = "VPC CIDR Block - Network address space for your VPC (e.g., 10.0.0.0/16)"
-  type        = string
-  default     = "10.0.0.0/16"
-}
-
-variable "log_retention_days" {
-  description = "Log Retention - Number of days to keep CloudWatch logs (7, 14, 30, 60, 90, 180, 365)"
+variable "test_number" {
+  description = "A test number variable"
   type        = number
-  default     = 30
-}
-
-variable "enable_nat_gateway" {
-  description = "NAT Gateway - Enable NAT Gateway for private subnet internet access"
-  type        = bool
-  default     = true
-}
-
-variable "single_nat_gateway" {
-  description = "Single NAT Gateway - Use one NAT Gateway for all AZs (cost optimization for non-prod)"
-  type        = bool
-  default     = false
-}
-
-variable "enable_flow_logs" {
-  description = "VPC Flow Logs - Enable VPC Flow Logs for network monitoring"
-  type        = bool
-  default     = true
-}
-
-variable "tags" {
-  description = "Additional Tags - Custom tags to apply to all resources"
-  type        = map(string)
-  default     = {}
+  default     = 42
 }
