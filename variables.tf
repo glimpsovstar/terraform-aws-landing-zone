@@ -22,8 +22,8 @@ variable "vpc_cidr" {
 }
 
 variable "enable_nat_gateway" {
-  description = "NAT Gateway - Enable NAT Gateway for private subnet internet access (true/false)"
-  type        = string
+  description = "NAT Gateway - Enable NAT Gateway for private subnet internet access"
+  type        = bool
 }
 
 variable "log_retention_days" {
