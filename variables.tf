@@ -21,6 +21,21 @@ variable "vpc_cidr" {
   type        = string
 }
 
+variable "instance_count" {
+  description = "Number of instances to create"
+  type        = number
+}
+
+variable "availability_zones" {
+  description = "List of availability zones"
+  type        = list(string)
+}
+
+variable "tags" {
+  description = "Map of tags to apply to resources"
+  type        = map(string)
+}
+
 variable "enable_nat_gateway" {
   description = "NAT Gateway - Enable NAT Gateway for private subnet internet access"
   type        = bool
