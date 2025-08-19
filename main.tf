@@ -15,15 +15,12 @@ data "aws_caller_identity" "current" {}
 locals {
   name_prefix = "${var.project_name}-${var.environment}"
   
-  common_tags = merge(
-    {
-      Environment = var.environment
-      Project     = var.project_name
-      ManagedBy   = "terraform"
-      CreatedBy   = "terraform-aws-landing-zone"
-    },
-    var.tags
-  )
+  common_tags = {
+    Environment = var.environment
+    Project     = var.project_name
+    ManagedBy   = "terraform"
+    CreatedBy   = "terraform-aws-landing-zone"
+  }
   
   azs = data.aws_availability_zones.available.names
 }
@@ -47,15 +44,15 @@ module "vpc" {
   ]
 
   enable_nat_gateway     = var.enable_nat_gateway
-  single_nat_gateway     = var.single_nat_gateway
+  single_nat_gateway     = false
   enable_vpn_gateway     = false
   enable_dns_hostnames   = true
   enable_dns_support     = true
 
   # Enable flow logs
-  enable_flow_log                      = var.enable_flow_logs
-  create_flow_log_cloudwatch_iam_role  = var.enable_flow_logs
-  create_flow_log_cloudwatch_log_group = var.enable_flow_logs
+  enable_flow_log                      = true
+  create_flow_log_cloudwatch_iam_role  = true
+  create_flow_log_cloudwatch_log_group = true
 
   tags = local.common_tags
 }
