@@ -41,6 +41,21 @@ module "landing_zone" {
 }
 ```
 
+### No-Code Provisioning
+
+This module is designed for Terraform Cloud's No-Code workflows:
+
+1. **Publish to Private Registry**: Add this module to your TFC organization's private registry
+2. **Create No-Code Workspace**: Use "Module-based workflow" when creating a workspace
+3. **Configure via UI**: Fill out the form fields instead of writing HCL code
+
+The No-Code interface will provide:
+- **Dropdown menus** for `environment` and `region`
+- **Text inputs** with validation for `project_name` and `vpc_cidr`
+- **Toggle switches** for `enable_nat_gateway`, `single_nat_gateway`, `enable_flow_logs`
+- **Number input** for `log_retention_days`
+- **Key-value editor** for custom `tags`
+
 ## Requirements
 
 | Name | Version |

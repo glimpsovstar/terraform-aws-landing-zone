@@ -1,0 +1,35 @@
+# Terraform Cloud No-Code Configuration Template
+# This file shows how this module will appear in TFC's No-Code interface
+
+## Basic Configuration
+# Users will see these as form fields in the No-Code UI:
+
+# Project Settings (Required)
+project_name = "my-landing-zone"  # Text input with validation
+environment  = "dev"              # Dropdown: dev, staging, prod
+
+# Infrastructure Settings
+region   = "us-west-2"           # Dropdown with popular regions
+vpc_cidr = "10.0.0.0/16"         # Text input with CIDR validation
+
+# Optional Features (Toggles)
+enable_nat_gateway   = true      # Boolean toggle
+single_nat_gateway   = false     # Boolean toggle (cost optimization)
+enable_flow_logs     = true      # Boolean toggle
+
+# Monitoring Settings
+log_retention_days = 30          # Dropdown with valid retention periods
+
+# Additional Tags (Key-Value pairs)
+tags = {
+  "CostCenter" = "Engineering"
+  "Owner"      = "DevOps Team"
+}
+
+## How to Use in TFC No-Code:
+# 1. Go to Workspaces → Create Workspace
+# 2. Choose "Module-based workflow"  
+# 3. Search for this module in your private registry
+# 4. Fill out the form with the values above
+# 5. Click "Create workspace"
+# 6. TFC will generate the configuration automatically

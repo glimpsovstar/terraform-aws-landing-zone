@@ -16,16 +16,16 @@ module "vpc" {
     cidrsubnet(var.vpc_cidr, 8, 102)
   ]
 
-  enable_nat_gateway     = true
-  single_nat_gateway     = false
+  enable_nat_gateway     = var.enable_nat_gateway
+  single_nat_gateway     = var.single_nat_gateway
   enable_vpn_gateway     = false
   enable_dns_hostnames   = true
   enable_dns_support     = true
 
   # Enable flow logs
-  enable_flow_log                      = true
-  create_flow_log_cloudwatch_iam_role  = true
-  create_flow_log_cloudwatch_log_group = true
+  enable_flow_log                      = var.enable_flow_logs
+  create_flow_log_cloudwatch_iam_role  = var.enable_flow_logs
+  create_flow_log_cloudwatch_log_group = var.enable_flow_logs
 
   tags = local.common_tags
 }
