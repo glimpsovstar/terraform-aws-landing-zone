@@ -9,6 +9,10 @@ variable "project_name" {
 variable "environment" {
   description = "Environment name (dev, staging, prod)"
   type        = string
+  validation {
+    condition     = contains(["dev", "staging", "prod"], var.environment)
+    error_message = "Environment must be one of: dev, staging, prod."
+  }
 }
 
 variable "region" {
@@ -37,9 +41,12 @@ variable "tags" {
 }
 
 variable "enable_nat_gateway" {
-  description = "NAT Gateway - Enable NAT Gateway for private subnet internet access"
-  type        = bool
-  default     = true
+  description = "Enable NAT Gateway for private subnet internet access"
+  type        = string
+  validation {
+    condition     = contains(["true", "false"], var.enable_nat_gateway)
+    error_message = "Enable NAT Gateway must be either 'true' or 'false'."
+  }
 }
 
 variable "log_retention_days" {
