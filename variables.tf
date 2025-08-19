@@ -7,7 +7,7 @@ variable "project_name" {
 }
 
 variable "environment" {
-  description = "Environment name (dev, staging, prod)"
+  description = "Environment name - Type exactly: dev OR staging OR prod"
   type        = string
   validation {
     condition     = contains(["dev", "staging", "prod"], var.environment)
@@ -41,7 +41,7 @@ variable "tags" {
 }
 
 variable "enable_nat_gateway" {
-  description = "Enable NAT Gateway for private subnet internet access"
+  description = "Enable NAT Gateway - Type exactly: true OR false"
   type        = string
   validation {
     condition     = contains(["true", "false"], var.enable_nat_gateway)
