@@ -14,6 +14,8 @@ A minimal, production-ready AWS landing zone module following HashiCorp's best p
 
 ## Usage
 
+### Basic Usage
+
 ```hcl
 module "landing_zone" {
   source = "git::https://github.com/glimpsovstar/terraform-aws-landing-zone.git?ref=v1.0.0"
@@ -21,6 +23,21 @@ module "landing_zone" {
   project_name = "my-app"
   environment  = "production"
   region       = "ap-southeast-1"
+}
+```
+
+### Usage with Terraform Cloud
+
+When using this module in Terraform Cloud, reference it in your workspace configuration:
+
+```hcl
+module "landing_zone" {
+  source = "git::https://github.com/glimpsovstar/terraform-aws-landing-zone.git?ref=v1.0.0"
+  
+  project_name = var.project_name
+  environment  = var.environment
+  region       = var.region
+  vpc_cidr     = var.vpc_cidr
 }
 ```
 
@@ -55,7 +72,7 @@ module "landing_zone" {
 
 ## File Structure
 
-```
+```text
 terraform-aws-landing-zone/
 ├── versions.tf          # Provider requirements
 ├── variables.tf         # Input variables  

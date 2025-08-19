@@ -1,15 +1,5 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = var.region
-}
+# Example usage of the terraform-aws-landing-zone module
+# In Terraform Cloud, the provider configuration will be managed by TFC
 
 variable "region" {
   description = "AWS region"

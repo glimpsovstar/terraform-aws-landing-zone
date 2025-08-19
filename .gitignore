@@ -11,8 +11,14 @@ override.tf.json
 *_override.tf
 *_override.tf.json
 *.plan
+*.zip
+
 # Do NOT ignore the lock file; commit it for provider checksums
 # .terraform.lock.hcl
+
+# --- TFC specific ---
+# If using TFC remote backend locally, ignore state files
+terraform.tfstate.backup
 
 # --- macOS & editors ---
 .DS_Store
