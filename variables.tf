@@ -26,18 +26,21 @@ variable "vpc_cidr" {
 }
 
 variable "instance_count" {
-  description = "Number of instances to create"
+  description = "Number of instances to create (for future use)"
   type        = number
+  default     = 2
 }
 
 variable "availability_zones" {
-  description = "List of availability zones"
+  description = "List of availability zones (leave empty to use first 2 AZs in region automatically)"
   type        = list(string)
+  default     = []
 }
 
 variable "tags" {
-  description = "Map of tags to apply to resources"
+  description = "Map of tags to apply to resources (optional - leave empty for default tags only)"
   type        = map(string)
+  default     = {}
 }
 
 variable "enable_nat_gateway" {

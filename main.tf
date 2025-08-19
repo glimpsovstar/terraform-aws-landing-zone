@@ -23,7 +23,7 @@ locals {
   }, var.tags)
   
   # Use availability_zones variable if provided, otherwise use data source
-  azs = length(var.availability_zones) > 0 ? var.availability_zones : slice(local.azs, 0, 2)
+  azs = length(var.availability_zones) > 0 ? var.availability_zones : slice(data.aws_availability_zones.available.names, 0, 2)
 }
 
 # VPC with public and private subnets across 2 AZs
@@ -34,7 +34,7 @@ module "vpc" {
   name = "${local.name_prefix}-vpc"
   cidr = var.vpc_cidr
 
-  azs             = length(var.availability_zones) > 0 ? var.availability_zones : slice(local.azs, 0, 2)
+  azs             = local.azs
   private_subnets = [
     cidrsubnet(var.vpc_cidr, 8, 1),
     cidrsubnet(var.vpc_cidr, 8, 2)
