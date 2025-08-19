@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # S3 bucket for application data/assets
 resource "aws_s3_bucket" "app_bucket" {
   bucket = "${local.name_prefix}-app-data-${random_id.bucket_suffix.hex}"

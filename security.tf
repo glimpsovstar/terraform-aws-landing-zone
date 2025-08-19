@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # Security Group for web applications
 resource "aws_security_group" "web" {
   name_prefix = "${local.name_prefix}-web-"

@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # IAM role for EC2 instances
 resource "aws_iam_role" "ec2_role" {
   name = "${local.name_prefix}-ec2-role"
