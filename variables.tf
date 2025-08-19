@@ -14,19 +14,16 @@ variable "environment" {
 variable "region" {
   description = "AWS region to deploy resources"
   type        = string
-  default     = "us-west-2"
 }
 
 variable "vpc_cidr" {
   description = "VPC CIDR Block - Network address space for your VPC"
   type        = string
-  default     = "10.0.0.0/16"
 }
 
 variable "enable_nat_gateway" {
   description = "NAT Gateway - Enable NAT Gateway for private subnet internet access"
   type        = bool
-  default     = true
 }
 
 variable "log_retention_days" {
